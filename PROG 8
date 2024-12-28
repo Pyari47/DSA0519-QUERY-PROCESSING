@@ -1,0 +1,22 @@
+8.Write a Pandas program to create a Pivot table and find the item wise unit sold. .(refer sales_data table)
+SOLUTION:
+import pandas as pd
+
+# Sample sales data (replace this with actual data or a CSV file read operation)
+sales_data = {
+    'Item': ['Item1', 'Item2', 'Item1', 'Item3', 'Item2'],
+    'Sale Value': [100, 150, 200, 300, 100],
+    'Date': ['2023-01-01', '2023-01-02', '2023-01-03', '2023-01-04', '2023-01-05'],
+    'Quantity': [10, 20, 15, 5, 30]
+}
+
+# Create a DataFrame
+df = pd.DataFrame(sales_data)
+
+# Create the pivot table: Summing up quantity sold by Item
+pivot_table = pd.pivot_table(df, values='Quantity', index='Item', aggfunc='sum')
+
+# Display the pivot table
+print("Pivot Table of Total Units Sold for Each Item:")
+print(pivot_table)
+
