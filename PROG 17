@@ -1,0 +1,16 @@
+17.Write a Pandas program to split the following dataframe by school code and get mean, min, and max value of age for each school.
+SOLUTION:
+import pandas as pd
+# Sample data
+data = {
+    'school_code': ['S001', 'S002', 'S001', 'S003', 'S002', 'S001', 'S003', 'S002'],
+    'name': ['John', 'Alice', 'David', 'Emma', 'Sophia', 'James', 'Oliver', 'Mia'],
+    'age': [14, 13, 15, 14, 13, 14, 15, 14],
+    'score': [85, 90, 88, 78, 95, 80, 92, 87]
+}
+# Create DataFrame
+df = pd.DataFrame(data)
+# Group by 'school_code' and calculate mean, min, and max for 'age'
+age_stats = df.groupby('school_code')['age'].agg(['mean', 'min', 'max'])
+# Display the result
+print(age_stats)
