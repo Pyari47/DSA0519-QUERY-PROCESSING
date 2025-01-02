@@ -1,0 +1,15 @@
+20.Write a Pandas program to find the index of a given substring of a DataFrame column.
+SOLUTION:
+import pandas as pd
+# Sample DataFrame
+data = {
+    'name': ['John Doe', 'Alice Smith', 'David Johnson', 'Emma Brown', 'Sophia Williams'],
+    'age': [25, 30, 35, 40, 28]
+}
+df = pd.DataFrame(data)
+# Substring to search for
+substring = "Smith"
+# Find the indices where the substring exists in the 'name' column
+indices = df[df['name'].str.contains(substring, na=False)].index.tolist()
+# Display the indices
+print(f"Indices of rows where the substring '{substring}' is found in the 'name' column: {indices}")
