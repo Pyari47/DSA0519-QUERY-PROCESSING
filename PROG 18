@@ -1,0 +1,19 @@
+18.Write a Pandas program to split the following given dataframe into groups based on school code and class.
+SOLUTION:
+import pandas as pd
+# Sample data
+data = {
+    'school_code': ['S001', 'S002', 'S001', 'S003', 'S002', 'S001', 'S003', 'S002'],
+    'class': ['10', '10', '11', '10', '11', '11', '10', '11'],
+    'name': ['John', 'Alice', 'David', 'Emma', 'Sophia', 'James', 'Oliver', 'Mia'],
+    'age': [14, 13, 15, 14, 13, 14, 15, 14],
+    'score': [85, 90, 88, 78, 95, 80, 92, 87]
+}
+# Create DataFrame
+df = pd.DataFrame(data)
+# Group by 'school_code' and 'class'
+grouped = df.groupby(['school_code', 'class'])
+# Display grouped data
+for (school, class_), group in grouped:
+    print(f"\nGroup for school_code '{school}' and class '{class_}':")
+print(group)
