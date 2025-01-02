@@ -1,0 +1,15 @@
+12.Create a dataframe of ten rows, four columns with random values. Write a Pandas program to set dataframe background Color black and font color yellow.
+
+import pandas as pd
+import numpy as np
+# Create a DataFrame with random values
+np.random.seed(42)  # For reproducibility
+data = np.random.randn(10, 5)
+df = pd.DataFrame(data, columns=['A', 'B', 'C', 'D', 'E'])
+# Define a style function for black background and yellow font
+def black_yellow_style(s):
+    return 'background-color: black; color: yellow'
+# Apply the style to the entire DataFrame
+styled_df = df.style.applymap(lambda _: black_yellow_style(_))
+# Display the styled DataFrame
+styled_df
