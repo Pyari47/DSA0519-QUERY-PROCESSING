@@ -1,0 +1,17 @@
+19.Write a Pandas program to display the dimensions or shape of the World alcohol consumption dataset. Also extract the column names from the dataset.
+SOLUTION:
+import pandas as pd
+# Sample data: Replace this with the actual path to your dataset
+data = {
+    "Year": [1985, 1986, 1987, 1984, 1985],
+    "WHO_region": ["Europe", "Americas", "Europe", "Africa", "Asia"],
+    "Country": ["France", "USA", "Italy", "Nigeria", "Japan"],
+    "Beverage_Type": ["Wine", "Beer", "Wine", "Spirits", "Beer"],
+    "Consumption": [7.5, 8.3, 6.8, 4.5, 5.2],
+}
+# Create DataFrame
+df = pd.DataFrame(data)
+# Display dimensions of the dataset
+print("Dimensions of the dataset (rows, columns):", df.shape)
+# Extract and display column names
+print("Column names:", df.columns.tolist())
