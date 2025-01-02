@@ -1,0 +1,16 @@
+import pandas as pd
+import numpy as np
+# Create a DataFrame with random values
+np.random.seed(42)  # For reproducibility
+data = np.random.randn(10, 5)
+df = pd.DataFrame(data, columns=['A', 'B', 'C', 'D', 'E'])
+# Introduce NaN values
+nan_indices = [(0, 2), (3, 3), (5, 0), (9, 4)]  # Example indices for NaN
+for row, col in nan_indices:
+    df.iat[row, col] = np.nan
+# Highlight NaN values
+def highlight_nan(s):
+    return ['background-color: red' if pd.isna(v) else '' for v in s]
+styled_df = df.style.apply(highlight_nan, axis=1)
+# Display the styled DataFrame
+styled_df
